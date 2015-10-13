@@ -1,5 +1,8 @@
 #!/usr/bin/env python
-from urlparse import urlparse
+try:
+    from urlparse import urlparse
+except ImportError:
+    from urllib.parse import urlparse
 
 # This will mutate test. Use only if you know what you are doing.
 def set_port_and_protocol(host, test):

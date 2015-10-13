@@ -19,4 +19,5 @@ from .tcptest import tcp_test
 from .colours import Colours
 from .colours import COLOURS
 from .charcoal import Charcoal
+from .set_port_and_protocol import set_port_and_protocol
 __all__ = ['.']

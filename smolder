@@ -4,6 +4,7 @@ import yaml
 import sys
 from smolder import Charcoal
 from smolder import tcp_test
+from smolder import set_port_and_protocol
 import logging
 import argh
 from yaml.parser import ParserError
@@ -128,6 +129,7 @@ def smolder_cli(**kwargs):
                 port = 80
         tcp_test(str(kwargs['host']), port)
         test_obj = Charcoal(test=test, host=kwargs['host'])
+
         print(str(test_obj))
         total_failed_tests += test_obj.failed
         total_passed_tests += test_obj.passed

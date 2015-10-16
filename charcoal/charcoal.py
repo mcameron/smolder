@@ -77,9 +77,12 @@ class Charcoal(object):
             host_overrides["port"] = host_overrides_object.port
         if host_overrides_object.hostname is not None:
             self.host = host_overrides_object.hostname
+        else:
+            self.host = host
         host_overrides = dict()
         final_dict = deepupdate(intermediate_dict, host_overrides)
-        tcp_test(self.host, self.port)
+        if "tcp_test" in test and test["tcp_test"]:
+            tcp_test(self.host, self.port)
         try:
             if type(final_dict["inputs"]["verify"]) == bool:
                 self.verify = final_dict["inputs"]["verify"]

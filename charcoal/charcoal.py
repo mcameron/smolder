@@ -4,10 +4,16 @@ import time
 import logging
 import warnings
 from copy import deepcopy
-from urllib.parse import urlparse
+try:
+    from urlparse import urlparse
+except ImportError:
+    from urllib.parse import urlparse
 import jsonpickle
 import requests
-from .tcptest import tcp_test
+try:
+    from tcptest import tcp_test
+except ImportError:
+    from .tcptest import tcp_test
 from yapsy.PluginManager import PluginManager
 
 from . import COLOURS
